@@ -22139,8 +22139,12 @@ a:hover {
 }
 
 .badge-item-preview .badge-item-preview-info .badge-item-preview-title {
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+    font-weight: 700;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 .badge-item-preview .badge-item-preview-info .badge-item-preview-text {
@@ -22151,11 +22155,11 @@ a:hover {
 }
 
 .badge-item-preview .badge-item-preview-info .badge-item-preview-timestamp {
-  margin-top: 14px;
-  color: var(--color-text-alt-2);
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
+    margin-top: 14px;
+    color: #ff0005;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 /*--------------------
