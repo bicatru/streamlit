@@ -80,7 +80,7 @@ APP_ID = "17398250011"
 APP_SECRET = "U675F3TO44TAWI67LJBUZBZN44QVSJKD"
 
 #url = "https://shopee.vn/D%E1%BA%A7u-%C4%83n-Neptune-Light-5L-i.137264191.5746396694"
-sub_ids = ["python"]
+#sub_ids = []
 
 client = ShopeeAffiliate(app_id=APP_ID, app_secret=APP_SECRET)
 #print(json.loads(resp.text)["data"]["generateShortLink"]["shortLink"])
@@ -89,11 +89,14 @@ client = ShopeeAffiliate(app_id=APP_ID, app_secret=APP_SECRET)
 st.image("avata.png",width=150)
 st.title("KOL PhanChau")
 
+user = st.text_input("Nhập username shopee của bạn vào đây!")
 url = st.text_input("Nhập link sản phẩm của bạn vào đây!")
 #button submit
 #try:
 if st.button("Lấy link"):
-    resp = client.shortlink(url, sub_ids)
+    if len(user) > 31:
+        user="none"
+    resp = client.shortlink(url, [user])
     link = json.loads(resp.text)["data"]["generateShortLink"]["shortLink"]
     id = re.findall(r'\d+', url.split('?')[0])[-2:]
     sc = requests.get(f"https://shopee.vn/api/v4/item/get?itemid={id[1]}&shopid={id[0]}").json()
