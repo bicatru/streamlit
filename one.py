@@ -95,7 +95,6 @@ if st.button("Lấy link"):
     resp = client.shortlink(url, sub_ids)
     link = json.loads(resp.text)["data"]["generateShortLink"]["shortLink"]
     id = re.findall(r'\d+', url.split('?')[0])[-2:]
-    st.text(id[0])
     sc = requests.get(f"https://shopee.vn/api/v4/item/get?itemid={id[1]}&shopid={id[0]}").json()
     name = sc["data"]["name"]
     img = sc["data"]["image"]
@@ -120,7 +119,7 @@ if st.button("Lấy link"):
     
     <div class="section-filters-bar v2" style="background: #fff;"><div class="section-filters-bar-actions full"><div class="form"><div class="form-row split"><div class="form-item"><div class="form-input small with-button active"><input type="text" value="{link}" id="find" readonly="readonly" style="border: 1px solid #dedeea;"><button onclick="copy()" class="button primary" style="background: #4b9bff;width: 40%;line-height: 20px">sao chép</button></div></div>
 </div></div></div>
-<div id="item" class="grid grid-4-4-4 centered" style="background: #f3f3f3;border-radius: 12px;"><a href="{link}"> 
+<div id="item" class="grid grid-4-4-4 centered" style="background: ##a29a9a;border-radius: 12px;"><a href="{link}"> 
 <div class="badge-item-preview">
         <img class="badge-item-preview-image" src="https://cf.shopee.vn/file/{img}" alt="badge-gold-b">
         <div class="badge-item-preview-info" href="{link}">
@@ -141,9 +140,6 @@ if st.button("Lấy link"):
     </script>
     '''
     components.html(html_string, height=300) 
-    st.text("Link đã được tạo thành công!")
-    st.text("Bạn có thể sao chép link hoặc nhấp vào link để mua hàng!")
-    st.text("Khi đơn hàng hoàn thành mình sẽ gửi 1000xu đến tài khoản mua hàng!")
     st.markdown('<p style="font-family:sans-serif; color:red; font-size: 20px;">Cảm ơn bạn đã ủng hộ!</p>', unsafe_allow_html=True)
 #except:
  #   st.markdown('<p style="font-family:sans-serif; color:red; font-size: 20px;">lỗi hệ thống!</p>', unsafe_allow_html=True)
