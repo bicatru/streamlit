@@ -121,7 +121,7 @@ if st.button("Lấy link"):
 </div></div></div>
 <div id="item" class="grid grid-4-4-4 centered" style="background: #cdcdcd;border-radius: 12px;"><a href="{link}"> 
 <div class="badge-item-preview">
-        <img class="badge-item-preview-image" src="https://cf.shopee.vn/file/{img}" alt="badge-gold-b">
+        <img class="badge-item-preview-image" style="border-radius: 5px;" src="https://cf.shopee.vn/file/{img}" alt="badge-gold-b">
         <div class="badge-item-preview-info" href="{link}">
           <p class="badge-item-preview-title">{name}</p>
           <p class="badge-item-preview-timestamp">{price}đ</p>
