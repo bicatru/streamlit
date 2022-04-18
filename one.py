@@ -5,6 +5,8 @@ from httpx import Client
 import hashlib
 import datetime
 import calendar
+import requests
+import re
 from urllib.parse import urljoin, urlparse
 import json
 
@@ -92,10 +94,17 @@ url = st.text_input("Nhập link sản phẩm của bạn vào đây!")
 if st.button("Lấy link"):
     resp = client.shortlink(url, sub_ids)
     link = json.loads(resp.text)["data"]["generateShortLink"]["shortLink"]
-
+    id = re.findall(r'\d+', url.split('?')[0])[-2:]
+    st.text(id[0])
+    sc = requests.get(f"https://shopee.vn/api/v4/item/get?itemid={id[1]}&shopid={id[0]}").json()
+    name = sc["data"]["name"]
+    img = sc["data"]["image"]
+    daban = sc["data"]["historical_sold"]
+    price = int(sc["data"]["price_min"])/100000
     html_string = f'''
-    <link rel="stylesheet" href="https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/style.css">
+    <link rel="stylesheet" href="https://gartic.ml/style.css">
     <link rel="stylesheet" href="https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/sass/_form.scss">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <style> 
     button {{
                 background-color: #23d2e2;
@@ -108,25 +117,26 @@ if st.button("Lấy link"):
                 font-size: 16px;border-radius: 10px
     }}
     </style>
-    <div class="section-filters-bar v2" style="background: #fff;"><div class="section-filters-bar-actions full"><div class="form"><div class="form-row split"><div class="form-item"><div class="form-input small with-button active"><input type="text" value="{link}" id="find" style="border: 1px solid #dedeea;"><button onclick="findit()" class="button primary" style="background: #4b9bff;width: 40%;line-height: 20px">sao chép</button></div></div>
+    
+    <div class="section-filters-bar v2" style="background: #fff;"><div class="section-filters-bar-actions full"><div class="form"><div class="form-row split"><div class="form-item"><div class="form-input small with-button active"><input type="text" value="{link}" id="find" readonly="readonly" style="border: 1px solid #dedeea;"><button onclick="copy()" class="button primary" style="background: #4b9bff;width: 40%;line-height: 20px">sao chép</button></div></div>
 </div></div></div>
-<div id="item" class="grid grid-4-4-4 centered" style="background: #f3f3f3;border-radius: 12px;"><a href="undefined"> 
+<div id="item" class="grid grid-4-4-4 centered" style="background: #f3f3f3;border-radius: 12px;"><a href="{link}"> 
 <div class="badge-item-preview">
-        <img class="badge-item-preview-image" src="https://cf.shopee.vn/file/0e8a2bf1747247a92f4f5dde480364d9_tn" alt="badge-gold-b">
-        <div class="badge-item-preview-info" href="https://shopee.vn/product/393363168/10276471405">
-          <p class="badge-item-preview-title">quần jean</p>
-          <p class="badge-item-preview-timestamp">19.000đ</p>
-          <p class="badge-item-preview-text">đã bán undefined sp</p>
+        <img class="badge-item-preview-image" src="https://cf.shopee.vn/file/{img}" alt="badge-gold-b">
+        <div class="badge-item-preview-info" href="{link}">
+          <p class="badge-item-preview-title">{name}</p>
+          <p class="badge-item-preview-timestamp">{price}đ</p>
+          <p class="badge-item-preview-text">đã bán {daban} sp</p>
         </div>
       </div>
       </a></div></div>
-    <button id="bbb">{link}</button>
-    <button onclick="myFunction()">Sao chép</button>
     <script>
-    function myFunction() {{
-    var elem = document.getElementById('bbb');
-    var txt = elem.textContent || elem.innerText;
-    navigator.clipboard.writeText(txt);
+    function copy() {{
+        var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val("{link}").select();
+          document.execCommand("copy");
+          $temp.remove();
     }}
     </script>
     '''
