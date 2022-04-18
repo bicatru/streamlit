@@ -129,7 +129,7 @@ if st.button("Lấy link"):
         <div class="badge-item-preview-info" href="{link}">
           <p class="badge-item-preview-title">{name}</p>
           <p class="badge-item-preview-timestamp">{price}đ</p>
-          <p class="badge-item-preview-text">đã bán {daban} sp</p>
+          <p class="badge-item-preview-text">{link}</p>
         </div>
       </div>
       </a></div></div>
