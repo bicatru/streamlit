@@ -99,11 +99,15 @@ if st.button("Lấy link"):
     resp = client.shortlink(url, [user])
     link = json.loads(resp.text)["data"]["generateShortLink"]["shortLink"]
     id = re.findall(r'\d+', url.split('?')[0])[-2:]
-    sc = requests.get(f"https://shopee.vn/api/v4/item/get?itemid={id[1]}&shopid={id[0]}").json()
-    name = sc["data"]["name"]
-    img = sc["data"]["image"]
-    daban = sc["data"]["historical_sold"]
-    price = int(sc["data"]["price_min"])/100000
+    try:
+        sc = requests.get(f"https://shopee.vn/api/v4/item/get?itemid={id[1]}&shopid={id[0]}").json()
+        name = sc["data"]["name"]
+        img = sc["data"]["image"]
+        price = int(sc["data"]["price_min"])/100000
+    except:
+        name = "không thể tải tên sản phẩm"
+        img = "https://cf.shopee.vn/file/e6a3b7beffa95ca492926978d5235f79"
+        price = "00000"
     html_string = f'''
     <link rel="stylesheet" href="https://gartic.ml/style.css">
     <link rel="stylesheet" href="https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/sass/_form.scss">
