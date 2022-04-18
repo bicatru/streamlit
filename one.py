@@ -86,7 +86,8 @@ client = ShopeeAffiliate(app_id=APP_ID, app_secret=APP_SECRET)
 #print(json.loads(resp.text)["data"]["generateShortLink"]["shortLink"])
 
 #title
-st.title("KOL shopee")
+st.image("avata.png",width=150)
+st.title("KOL PhanChau")
 
 url = st.text_input("Nhập link sản phẩm của bạn vào đây!")
 #button submit
