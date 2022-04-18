@@ -148,6 +148,6 @@ if st.button("Lấy link"):
     </script>
     '''
     components.html(html_string, height=300) 
-    st.markdown('<p style="font-family:sans-serif; color:red; font-size: 20px;">Với mỗi đơn hàng hoàn thành qua link, bạn sẽ được nhận 1000 shopee xu.Cảm ơn bạn!</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:sans-serif; color:red; font-size: 20px;">Với mỗi đơn hàng hoàn thành qua link, bạn sẽ được nhận 1000 shopee xu. Cảm ơn bạn!</p>', unsafe_allow_html=True)
 #except:
  #   st.markdown('<p style="font-family:sans-serif; color:red; font-size: 20px;">lỗi hệ thống!</p>', unsafe_allow_html=True)
