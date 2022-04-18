@@ -119,7 +119,7 @@ if st.button("Lấy link"):
     
     <div class="section-filters-bar v2" style="background: #fff;"><div class="section-filters-bar-actions full"><div class="form"><div class="form-row split"><div class="form-item"><div class="form-input small with-button active"><input type="text" value="{link.replace('https://', '')}" id="find" readonly="readonly" style="border: 1px solid #dedeea;"><button onclick="copy()" class="button primary" style="background: #4b9bff;width: 40%;line-height: 20px">sao chép</button></div></div>
 </div></div></div>
-<div id="item" class="grid grid-4-4-4 centered" style="background: ##a29a9a;border-radius: 12px;"><a href="{link}"> 
+<div id="item" class="grid grid-4-4-4 centered" style="background: #a29a9a;border-radius: 12px;"><a href="{link}"> 
 <div class="badge-item-preview">
         <img class="badge-item-preview-image" src="https://cf.shopee.vn/file/{img}" alt="badge-gold-b">
         <div class="badge-item-preview-info" href="{link}">
