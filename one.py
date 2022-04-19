@@ -82,8 +82,9 @@ APP_SECRET = "U675F3TO44TAWI67LJBUZBZN44QVSJKD"
 
 html_str = """<div><div style="display: flex;"><div data-testid="stImage" class="css-1v0mbdj etr89bj1"><img src="https://github.com/bicatru/streamlit/blob/master/avata.png?raw=true" alt="0" style="width: 150px;"></div>
 <div style="display: flex;align-items: center;width: 50%;">
+<div>
 <a href="https://facebook.com" target="_blank"><span class="myButton" id="myButton" style="margin: 5px;background: linear-gradient(rgb(67 96 156) 5%, rgb(67 96 156) 100%) rgb(67 96 156); border-radius: 6px; border: 1px solid rgb(67 96 156); display: inline-block; cursor: pointer; color: rgb(255, 255, 255); font-family: Arial; font-size: 10px; font-weight: bold; padding: 9px 19px; text-decoration: none; text-shadow: rgb(91, 97, 120) 0px -1px 0px;">FACEBOOK</span></a>
-<a href="https://shopee.vn" target="_blank"><span class="myButton" id="myButton" style="margin-block: 5px;background: linear-gradient(#fd6032 5%, #fd6032 100%) #fd6032; border-radius: 6px; border: #fd6032; display: inline-block; cursor: pointer; color: rgb(255, 255, 255); font-family: Arial; font-size: 10px; font-weight: bold; padding: 9px 19px; text-decoration: none; text-shadow: rgb(91, 97, 120) 0px -1px 0px;">SHOPEE</span></a></div></div></div>"""
+<a href="https://shopee.vn" target="_blank"><span class="myButton" id="myButton" style="margin: 5px;background: linear-gradient(#fd6032 5%, #fd6032 100%) #fd6032; border-radius: 6px; border: #fd6032; display: inline-block; cursor: pointer; color: rgb(255, 255, 255); font-family: Arial; font-size: 10px; font-weight: bold; padding: 9px 19px; text-decoration: none; text-shadow: rgb(91, 97, 120) 0px -1px 0px;">SHOPEE</span></a></div></div></div></div>"""
 #url = "https://shopee.vn/D%E1%BA%A7u-%C4%83n-Neptune-Light-5L-i.137264191.5746396694"
 #sub_ids = []
 
