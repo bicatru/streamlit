@@ -104,6 +104,7 @@ if st.button("Lấy link"):
         name = sc["data"]["name"]
         img = sc["data"]["image"]
         price = int(int(sc["data"]["price_min"])/100000)
+        price = (f"{price:,}").replace(",", ".")
         dv = "₫"
     except:
         name = "Link sản phẩm của bạn"
