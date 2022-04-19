@@ -92,7 +92,7 @@ client = ShopeeAffiliate(app_id=APP_ID, app_secret=APP_SECRET)
 #print(json.loads(resp.text)["data"]["generateShortLink"]["shortLink"])
 
 #title
-st.title("TOLAKOL")
+st.title("TOLAKOL.ML")
 components.html(html_str, height=170) 
 
 user = st.text_input("Nhập username shopee của bạn vào đây!")
