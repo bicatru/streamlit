@@ -104,7 +104,7 @@ if st.button("Lấy link"):
         name = sc["data"]["name"]
         img = sc["data"]["image"]
         price = int(int(sc["data"]["price_min"])/100000)
-        dv = "đ"
+        dv = "₫"
     except:
         name = "Link sản phẩm của bạn"
         img = "https://cf.shopee.vn/file/e6a3b7beffa95ca492926978d5235f79"
@@ -134,7 +134,7 @@ if st.button("Lấy link"):
         <img class="badge-item-preview-image" style="border-radius: 5px;" src="https://cf.shopee.vn/file/{img}" alt="badge-gold-b">
         <div class="badge-item-preview-info" href="{link}">
           <p class="badge-item-preview-title">{name}</p>
-          <p class="badge-item-preview-timestamp">{price} {dv}</p>
+          <p class="badge-item-preview-timestamp">{dv} {price}</p>
           <p class="badge-item-preview-text">{link}</p>
         </div>
       </div>
