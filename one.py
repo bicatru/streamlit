@@ -103,11 +103,13 @@ if st.button("Lấy link"):
         sc = requests.get(f"https://shopee.vn/api/v4/item/get?itemid={id[1]}&shopid={id[0]}").json()
         name = sc["data"]["name"]
         img = sc["data"]["image"]
-        price = int(sc["data"]["price_min"])/100000
+        price = int(int(sc["data"]["price_min"])/100000)
+        dv = "đ"
     except:
         name = "Link sản phẩm của bạn"
         img = "https://cf.shopee.vn/file/e6a3b7beffa95ca492926978d5235f79"
         price = "Shopee"
+        dv = ""
     html_string = f'''
     <link rel="stylesheet" href="https://gartic.ml/style.css">
     <link rel="stylesheet" href="https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/sass/_form.scss">
@@ -132,7 +134,7 @@ if st.button("Lấy link"):
         <img class="badge-item-preview-image" style="border-radius: 5px;" src="https://cf.shopee.vn/file/{img}" alt="badge-gold-b">
         <div class="badge-item-preview-info" href="{link}">
           <p class="badge-item-preview-title">{name}</p>
-          <p class="badge-item-preview-timestamp">{price} đ</p>
+          <p class="badge-item-preview-timestamp">{price} {dv}</p>
           <p class="badge-item-preview-text">{link}</p>
         </div>
       </div>
