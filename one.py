@@ -102,7 +102,7 @@ url = st.text_input("Nhập link sản phẩm của bạn vào đây!")
 if st.button("Lấy link"):
     if len(user) > 31:
         user="none"
-    resp = client.shortlink(url, [user])
+    resp = client.shortlink(url, [user.lower().replace(".","C").replace("_","G")])
     link = json.loads(resp.text)["data"]["generateShortLink"]["shortLink"]
     id = re.findall(r'\d+', url.split('?')[0])[-2:]
     try:
