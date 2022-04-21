@@ -153,6 +153,8 @@ if st.button("Lấy link"):
           $temp.val("{link}").select();
           document.execCommand("copy");
           $temp.remove();
+          alert("bạn đã coppy {link}");
+    
     }}
     </script>
     '''
