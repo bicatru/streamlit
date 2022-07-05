@@ -4,6 +4,10 @@ import random
 import requests
 import json
 
+ip = requests.get('https://checkip.amazonaws.com').text.strip()
+
+st.title(ip)
+
 def create_group(SPC_EC, userid):
   return requests.post("https://giaitri.shopee.vn/gc-api/desktop-app-api/lottery/create-group/", headers={'Content-Type': 'application/json; charset=UTF-8', 'Cookie': f'SPC_EC={SPC_EC}; SPC_U={userid}'}).json()["data"]["group_id"]
 
